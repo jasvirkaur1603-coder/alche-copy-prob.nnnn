@@ -1,0 +1,50 @@
+{
+  "name": "alche-studio-portfolio",
+  "private": true,
+  "version": "0.0.0",
+  "type": "module",
+  "main": "electron.js",
+  "scripts": {
+    "dev": "vite",
+    "build": "tsc -b && vite build",
+    "lint": "oxlint",
+    "preview": "vite preview",
+    "electron-dev": "concurrently -k \"npm run dev\" \"cross-env NODE_ENV=development electron .\"",
+    "electron-pack": "npm run build && electron-builder"
+  },
+  "dependencies": {
+    "gsap": "^3.12.7",
+    "lucide-react": "^0.479.0",
+    "react": "^19.2.7",
+    "react-dom": "^19.2.7",
+    "three": "^0.174.0"
+  },
+  "devDependencies": {
+    "@types/node": "^24.13.2",
+    "@types/react": "^19.2.17",
+    "@types/react-dom": "^19.2.3",
+    "@types/three": "^0.174.0",
+    "@vitejs/plugin-react": "^6.0.3",
+    "concurrently": "^9.1.2",
+    "cross-env": "^7.0.3",
+    "electron": "^34.3.0",
+    "electron-builder": "^25.1.8",
+    "oxlint": "^1.71.0",
+    "typescript": "~6.0.2",
+    "vite": "^8.1.1"
+  },
+  "build": {
+    "appId": "com.alche.studio.portfolio",
+    "productName": "AlcheStudio",
+    "directories": {
+      "output": "release"
+    },
+    "files": [
+      "dist/**/*",
+      "electron.js"
+    ],
+    "win": {
+      "target": "portable"
+    }
+  }
+}
