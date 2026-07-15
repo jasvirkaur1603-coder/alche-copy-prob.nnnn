@@ -25,7 +25,7 @@ function createWindow() {
   const isDev = process.env.NODE_ENV === 'development';
 
   if (isDev) {
-    mainWindow.loadURL('http://localhost:5173');
+    mainWindow.loadFile(path.join(__dirname, 'index.html'));
   } else {
     mainWindow.loadFile(path.join(__dirname, 'dist/index.html'));
   }

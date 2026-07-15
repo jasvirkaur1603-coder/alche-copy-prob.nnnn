@@ -6,10 +6,10 @@
   "main": "electron.js",
   "scripts": {
     "dev": "vite",
-    "build": "tsc -b && vite build",
+    "build": "powershell -Command \"Remove-Item -Recurse -Force dist -ErrorAction SilentlyContinue; New-Item -ItemType Directory -Path dist; Copy-Item index.html dist\\index.html; Copy-Item -Recurse public\\* dist\"",
     "lint": "oxlint",
     "preview": "vite preview",
-    "electron-dev": "concurrently -k \"npm run dev\" \"cross-env NODE_ENV=development electron .\"",
+    "electron-dev": "cross-env NODE_ENV=development electron .",
     "electron-pack": "npm run build && electron-builder"
   },
   "dependencies": {
