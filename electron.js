@@ -42,6 +42,7 @@ function startLocalServer() {
 
     fs.readFile(filePath, (err, data) => {
       if (err) {
+        console.error("Local server file read error:", err);
         res.writeHead(404, { 'Content-Type': 'text/plain' });
         res.end('404 Not Found');
       } else {
@@ -78,6 +79,7 @@ function createWindow() {
 
   mainWindow.once('ready-to-show', () => {
     mainWindow.show();
+    mainWindow.webContents.openDevTools();
   });
 
   mainWindow.on('closed', () => {
